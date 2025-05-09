@@ -1,6 +1,6 @@
 entry() { --- this serves as main() in java
-    function add(a, b) {
-        return a + b;
-    }
     var price <- 10, tax <- 8, discount <- -3;
 }
+function add(a, b) {
+        return a + b;
+    }
