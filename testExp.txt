@@ -4,7 +4,7 @@ function entry() {
     print 10 - 5;     --- Expected: 5
     print 10 * 5;     --- Expected: 50
     print 10 / 3;     --- Expected: 3 (integer division)
-    --- print 10 % 3;
+    print 10 % 3;
 
     --- Relational Operators
     print 5 < 10;     --- Expected: 1
