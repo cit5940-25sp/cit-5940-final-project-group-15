@@ -257,4 +257,68 @@ public class InterpreterTest {
         assertEquals(Integer.valueOf(15), global.get("x"));
         assertEquals(Integer.valueOf(15), child.get("x"));
     }
+
+    // === More test cases for visitFuncCall ===
+    @Test
+    public void TestBuiltInFuncAbs() {
+        FuncCall absCall = new FuncCall("abs", List.of(new IntegerLiteral(-7)));
+        Expression expr = absCall;
+        FunctionDecl entry = new FunctionDecl("entry", new ArrayList<>(),
+                new Block(List.of(new PrintStmt(expr))));
+        Program program = new Program(List.of(entry));
+        String output = runWithCapturedOutput(() -> new Interpreter(program));
+        assertEquals("7\n", output);
+    }
+
+    @Test
+    public void TestBuiltInFuncAbsWrongArgs() {
+        FuncCall absCall = new FuncCall("abs", List.of()); // 0 argument
+        FunctionDecl entry = new FunctionDecl("entry", new ArrayList<>(),
+                new Block(List.of(new PrintStmt(absCall))));
+        Program program = new Program(List.of(entry));
+
+        try {
+            new Interpreter(program);
+            fail("Expected RuntimeException for abs() with 0 args");
+        } catch (RuntimeException e) {
+            assertEquals("abs() expects 1 argument.", e.getMessage());
+        }
+    }
+
+    @Test
+    public void TestBuiltInFuncMax() {
+        FuncCall maxCall = new FuncCall("max", List.of(new IntegerLiteral(3), new IntegerLiteral(8)));
+        FunctionDecl entry = new FunctionDecl("entry", new ArrayList<>(),
+                new Block(List.of(new PrintStmt(maxCall))));
+        Program program = new Program(List.of(entry));
+        String output = runWithCapturedOutput(() -> new Interpreter(program));
+        assertEquals("8\n", output);
+    }
+
+    @Test
+    public void TestBuiltInFuncMaxWrongArgs() {
+        FuncCall maxCall = new FuncCall("max", List.of(new IntegerLiteral(3)));
+        FunctionDecl entry = new FunctionDecl("entry", new ArrayList<>(),
+                new Block(List.of(new PrintStmt(maxCall))));
+        Program program = new Program(List.of(entry));
+
+        try {
+            new Interpreter(program);
+            fail("Expected RuntimeException for max() with 1 arg");
+        } catch (RuntimeException e) {
+            assertEquals("max() expects 2 arguments.", e.getMessage());
+        }
+    }
+
+    @Test
+    public void TestBuiltInFuncMin() {
+        FuncCall minCall = new FuncCall("min", List.of(new IntegerLiteral(9), new IntegerLiteral(4)));
+        FunctionDecl entry = new FunctionDecl("entry", new ArrayList<>(),
+                new Block(List.of(new PrintStmt(minCall))));
+        Program program = new Program(List.of(entry));
+        String output = runWithCapturedOutput(() -> new Interpreter(program));
+        assertEquals("4\n", output);
+    }
+
+
 }
