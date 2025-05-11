@@ -113,6 +113,12 @@ public class Interpreter implements ASTVisitor<Object> {
             throw new RuntimeException("Undefined function: " + fc.name);
         }
 
+        // handle wrong number of arguments
+        if (fc.arguments.size() != func.params.size()) {
+            throw new RuntimeException("Function '" + fc.name + "' expects " + func.params.size() +
+                    " arguments, but got " + fc.arguments.size() + ".");
+        }
+
         List<Object> argValues = new ArrayList<>();
         for (Expression arg : fc.arguments) {
             argValues.add(arg.accept(this));
