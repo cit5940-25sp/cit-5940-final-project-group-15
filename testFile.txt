@@ -5,6 +5,8 @@ function add(a, b) {
 function entry() { --- this serves as main() in java
 
     var price <- 10, tax <- 8, discount <- -3;
+    var y <- 10;
+    var x <- 10;
 
     if (x > 5) {
         y <- 10;
