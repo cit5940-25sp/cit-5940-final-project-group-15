@@ -1,4 +1,6 @@
 function entry() {
+
+    var x <- 1;
     run {
         print x;
         x <- x * 2;
