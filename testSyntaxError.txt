@@ -1,0 +1,7 @@
+function entry() {
+    bar x <- 10;
+    var ra <- case(10);
+    var rb <- case(3);
+    var rc <- case(1);
+    return rc;
+}
