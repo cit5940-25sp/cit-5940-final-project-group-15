@@ -36,7 +36,7 @@ public class SPROLARunner {
             // Interpret
             Interpreter interpreter = new Interpreter(program);
             // Print the final result
-            System.out.println(interpreter.getResult());
+            // System.out.println(interpreter.getResult());
 
         } catch (RuntimeException e) {
             System.err.println("Error: " + e.getMessage());

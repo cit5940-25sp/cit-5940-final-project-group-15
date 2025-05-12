@@ -7,7 +7,7 @@ public class LexerTest {
     public void testTokenize() {
         Lexer lexer = new Lexer("testFile.txt");
         List<Token> actual = lexer.tokenize("testFile.txt");
-        assertEquals(84, actual.size());
+        assertEquals(94, actual.size());
     }
     @Test
     public void testModulo() {
