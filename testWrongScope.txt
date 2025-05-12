@@ -1,0 +1,11 @@
+function case(num) {
+
+    return y;
+}
+
+function entry() {
+    var x <- 10;
+    var ra <- case(z); --- undefined variable
+
+    return ra;
+}

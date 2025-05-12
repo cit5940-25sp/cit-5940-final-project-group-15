@@ -1,0 +1,39 @@
+function add(a, b) {
+    return a + b;        --- (a + b)
+}
+
+function entry() {
+    --- Variable declarations
+    var x <- 10;
+    var y <- 5;
+    var z <- 0;
+    var inputVal <- input;   --- user inputs 2
+
+    --- Assignment
+    x <- x + 1;              --- x = 11
+
+    --- If/Elif/Else (inputVal = 2 < 5)
+    if (inputVal < 5) {
+        var small <- 1;
+        print small;         --- Expected: 1
+    } elif (inputVal > 10) {
+        var large <- 1;
+        print large;         --- (not executed)
+    } else {
+        var medium <- 1;
+        print medium;        --- (not executed)
+    }
+
+    while (y > 0) {
+        print y;             --- Expected: 5,4,3,2,1 each on its own line
+        y <- y - 1;
+    }
+
+    run {
+        print z;             --- Expected: 0,1,2 each on its own line
+        z <- z + 1;
+    } while (z < 3)
+
+    var result <- add(x, z); --- result = add(11,3) = 14
+    return result;            --- (14 printed)
+}
