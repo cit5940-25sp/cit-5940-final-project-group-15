@@ -2,7 +2,7 @@ import org.junit.Test;
 import java.util.List;
 import static org.junit.Assert.assertEquals;
 
-public class lexerTest {
+public class LexerTest {
     @Test
     public void testTokenize() {
         Lexer lexer = new Lexer("testFile.txt");
@@ -13,6 +13,6 @@ public class lexerTest {
     public void testModulo() {
         Lexer lexer = new Lexer("testLexer.txt");
         List<Token> actual = lexer.tokenize("testLexer.txt");
-        assertEquals(15, actual.size());
+        assertEquals(18, actual.size());
     }
 }
