@@ -1,4 +1,4 @@
-entry() {
+function entry() {
     var x <- 5 % 14;
-    var name_underscore;
+    var name_underscore <- 3;
 }
