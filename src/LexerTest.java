@@ -13,6 +13,6 @@ public class LexerTest {
     public void testModulo() {
         Lexer lexer = new Lexer("testLexer.txt");
         List<Token> actual = lexer.tokenize("testLexer.txt");
-        assertEquals(15, actual.size());
+        assertEquals(18, actual.size());
     }
 }
